@@ -1,0 +1,32 @@
+COUNTRIES = {
+	c:SAR ?= {
+
+		add_taxed_goods = g:liquor
+		add_taxed_goods = g:wine
+
+		effect_starting_technology_tier_2_tech = yes
+
+		effect_starting_politics_conservative = yes
+		activate_law = law_type:law_oligarchy
+		activate_law = law_type:law_national_supremacy
+
+		set_tax_level = medium
+
+		set_import_tariff_level = {
+			goods = g:artillery
+			level = high_subventions
+		}
+		set_import_tariff_level = {
+			goods = g:small_arms
+			level = high_subventions
+		}
+
+		activate_law = law_type:law_local_police
+		activate_law = law_type:law_religious_schools
+
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 2
+		}
+	}
+}

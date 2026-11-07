@@ -1,0 +1,81 @@
+﻿je_sardinia_industrialize = {#萨丁—皮埃蒙特工业化
+    icon = "gfx/interface/icons/event_icons/event_industry.dds"
+
+    group = je_group_industrialization
+
+    is_shown_when_inactive = {
+        c:SAR ?= THIS
+    }
+
+    possible = {
+        c:SAR ?= THIS
+        has_technology_researched = watertube_boiler
+        has_state_in_state_region = STATE_PIEDMONT
+    }
+
+    immediate = {
+        every_scope_state = {
+            limit = {
+                state_region = s:STATE_PIEDMONT
+            }
+            if = {
+                limit = { has_modifier = build_sardinia }
+                remove_modifier = build_sardinia
+            }
+            add_modifier = {
+                name = build_sardinia
+                months = -1
+            }
+        }
+    }
+
+    complete = {
+        any_scope_state = {
+            state_region = s:STATE_PIEDMONT
+            any_scope_building = {
+                is_building_type = building_urban_center
+                level >= 5
+            }
+            owner = ROOT
+        }
+    }
+
+    on_complete = {
+        custom_tooltip = {
+            text = sardinia_indu_tt_1
+            set_variable = sardinia_industrialize_complete_var
+        }
+        trigger_event = {
+            id = sardinia_industry.1
+        }
+        every_scope_state = {
+            limit = {
+                state_region = s:STATE_PIEDMONT
+            }
+            add_modifier = {
+                name = industrialized_sardinia
+                months = -1
+            }
+            if = {
+                limit = { has_modifier = build_sardinia }
+                remove_modifier = build_sardinia
+            }
+        }
+    }
+
+    fail = {
+        NOT = {
+            has_state_in_state_region = STATE_PIEDMONT
+        }
+    }
+
+    status_desc = {
+        triggered_desc = {
+            desc = sardinia_industrialize_status
+        }
+    }
+
+    weight = 100
+
+    should_be_pinned_by_default_uninvolved_or_context = yes
+}

@@ -1,0 +1,89 @@
+﻿namespace = roman_question
+
+roman_question.1 = {#罗马问题
+    type = country_event
+    placement = ROOT
+    title = roman_question.1.t
+    desc = roman_question.1.d
+    flavor = roman_question.1.f
+
+    duration = 3
+
+    trigger = {
+    }
+
+    immediate = {
+        set_variable = roman_question_var
+        create_country = {
+            tag = PAP
+            origin = this
+            province = p:xB5726E
+            on_created = {
+                s:STATE_LAZIO = {
+                    set_owner_of_provinces = {
+                        country = c:PAP
+                        provinces = { xB0C0A0 xB040A0 x3040A0 }
+                    }
+                }
+                set_immune_to_revolutions = yes
+                set_ruling_interest_groups = { ig_devout ig_landowners }
+                activate_law = law_type:law_theocracy
+                activate_law = law_type:law_state_religion
+                activate_law = law_type:law_autocracy
+            }
+        }
+    }
+
+    option = {
+        name = roman_question.1.a
+        default_option = yes
+        add_modifier = {
+            name = roman_question_suppress
+            months = -1
+        }
+    }
+
+    option = {
+        name = roman_question.1.b
+        add_modifier = {
+            name = roman_question_support
+            months = -1
+        }
+    }
+}
+
+roman_question.2 = {#罗马问题解决
+    type = country_event
+    placement = ROOT
+    title = roman_question.2.t
+    desc = roman_question.2.d
+    flavor = roman_question.2.f
+
+    duration = 3
+
+    trigger = {
+    }
+
+    option = {
+        name = roman_question.2.a
+        default_option = yes
+    }
+}
+
+roman_question.3 = {#罗马问题失败
+    type = country_event
+    placement = ROOT
+    title = roman_question.3.t
+    desc = roman_question.3.d
+    flavor = roman_question.3.f
+
+    duration = 3
+
+    trigger = {
+    }
+
+    option = {
+        name = roman_question.3.a
+        default_option = yes
+    }
+}

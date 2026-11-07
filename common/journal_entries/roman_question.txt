@@ -1,0 +1,45 @@
+﻿je_roman_question = {#罗马问题
+    icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+    group = je_group_internal_affairs
+
+    immediate = {
+        trigger_event = { id = roman_question.1 popup = yes }
+    }
+
+    complete = {
+        has_law_or_variant = law_type:law_total_separation
+    }
+
+    on_complete = {
+        annex_with_incorporation = c:PAP
+        set_capital = STATE_LAZIO
+        ig:ig_devout ?= {
+            remove_ideology = ideology_pious
+            add_ideology = ideology_roman_republican
+        }
+        trigger_event = { id = roman_question.2 popup = yes }
+    }
+
+    timeout = 1825
+
+    on_timeout = {
+        activate_law = law_type:law_state_religion
+        add_modifier = {
+            name = roman_question_church_power
+            months = -1
+        }
+        trigger_event = { id = roman_question.3 popup = yes }
+    }
+
+    fail = {
+        NOT = { exists = c:ITA }
+    }
+
+    on_fail = {
+    }
+
+    should_be_pinned_by_default_uninvolved_or_context = yes
+
+    weight = 5000
+}

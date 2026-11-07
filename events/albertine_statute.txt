@@ -1,0 +1,23 @@
+﻿namespace = sardinia_constitution
+
+sardinia_constitution.1 = {#阿尔贝特宪法
+    type = country_event
+    placement = ROOT
+    title = sardinia_constitution.1.t
+    desc = sardinia_constitution.1.d
+    flavor = sardinia_constitution.1.f
+
+    duration = 3
+
+    trigger = {
+    }
+
+    option = {
+        name = sardinia_constitution.1.a
+        default_option = yes
+        add_modifier = {
+            name = albertine_statute
+            months = -1
+        }
+    }
+}

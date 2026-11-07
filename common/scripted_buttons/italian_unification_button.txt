@@ -1,0 +1,36 @@
+﻿italian_unification_button = {
+    name = italian_unification_button
+    desc = italian_unification_button_desc
+
+    is_shown = {
+        is_unification_candidate = ITA
+        NOT = {
+            any_country = {
+                NOT = { this = root }
+                is_unification_candidate = ITA
+            }
+        }
+    }
+
+    possible = {
+        is_unification_candidate = ITA
+        NOT = {
+            any_country = {
+                NOT = { this = root }
+                is_unification_candidate = ITA
+            }
+        }
+    }
+
+    effect = {
+        custom_tooltip = {
+            text = italian_unification_button_effect_tt
+            create_diplomatic_play = {
+                name = dp_unify_italy
+                add_war_goal = {
+                    type = unify_italy
+                }
+            }
+        }
+    }
+}

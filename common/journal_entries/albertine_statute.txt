@@ -1,0 +1,46 @@
+﻿je_albertine_statute = {#阿尔贝特宪法
+    icon = "gfx/interface/icons/event_icons/event_political_parties.dds"
+
+    group = je_group_internal_affairs
+
+    is_shown_when_inactive = {
+        c:SAR ?= THIS
+    }
+
+    possible = {
+        c:SAR ?= THIS
+        has_state_in_state_region = STATE_PIEDMONT
+        is_subject = no
+    }
+
+    complete = {
+        has_law_or_variant = law_type:law_census_voting
+    }
+
+    on_complete = {
+        trigger_event = { id = sardinia_constitution.1 }
+    }
+
+    fail = {
+        NOT = {
+            has_state_in_state_region = STATE_PIEDMONT
+        }
+    }
+
+    on_fail = {
+    }
+
+    modifiers_while_active = {
+        country_law_enactment_time_mult = -0.2
+    }
+
+    status_desc = {
+        triggered_desc = {
+            desc = je_albertine_statute_status
+        }
+    }
+
+    weight = 100
+
+    should_be_pinned_by_default_uninvolved_or_context = yes
+}

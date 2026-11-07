@@ -1,0 +1,37 @@
+﻿annex_north_italy_button = {
+    name = annex_north_italy_button
+    desc = annex_north_italy_button_desc
+
+    is_shown = {
+        is_unification_candidate = ITA
+    }
+
+    possible = {
+        is_unification_candidate = ITA
+        NOT = { has_variable = annex_north_done }
+    }
+
+    effect = {
+        set_variable = annex_north_done
+        custom_tooltip = {
+            text = annex_north_italy_effect_tt
+            every_country = {
+                limit = {
+                    NOT = { THIS = ROOT }
+                    country_has_primary_culture = cu:north_italian
+                    country_rank < rank_value:great_power
+                    NOR = {
+                        c:AUS ?= this
+                        c:KUK ?= this
+                        is_subject_type = subject_type_colony
+                        is_subject_type = subject_type_dominion
+                        is_subject_type = subject_type_chartered_company
+                    }
+                    is_player = no
+                    ROOT.relations:THIS >= relations_threshold:neutral
+                }
+                ROOT = { annex_with_incorporation = PREV }
+            }
+        }
+    }
+}

@@ -1,0 +1,43 @@
+﻿ideology_roman_republican = {
+	icon = "gfx/interface/icons/ideology_icons/paternalistic.dds"
+
+	lawgroup_governance_principles = {
+		law_council_republic = strongly_disapprove
+		law_presidential_republic = neutral
+		law_parliamentary_republic = neutral
+		law_corporate_state = neutral
+		law_theocracy = approve
+		law_social_monarchy = approve
+		law_monarchy = strongly_approve
+	}
+
+	lawgroup_distribution_of_power = {
+		law_universal_suffrage = strongly_disapprove
+		law_anarchy = strongly_disapprove
+		law_technocracy = strongly_disapprove
+		law_autocracy = disapprove
+		law_single_party_state = neutral
+		law_wealth_voting = neutral
+		law_oligarchy = approve
+		law_landed_voting = strongly_approve
+		law_census_voting = strongly_approve
+	}
+
+	lawgroup_policing = {
+		law_no_police = disapprove
+		law_dedicated_police = neutral
+		law_militarized_police = neutral
+		law_local_police = approve
+	}
+
+	lawgroup_economic_system = {
+		law_cooperative_ownership = strongly_disapprove
+		law_command_economy = strongly_disapprove
+		law_industry_banned = disapprove
+		law_laissez_faire = disapprove
+		law_extraction_economy = disapprove
+		law_traditionalism = neutral
+		law_agrarianism = approve
+		law_interventionism = strongly_approve
+	}
+}

@@ -1,0 +1,23 @@
+﻿namespace = sardinia_industry
+
+sardinia_industry.1 = {#萨丁工业化完成
+    type = country_event
+    placement = ROOT
+    title = sardinia_industry.1.t
+    desc = sardinia_industry.1.d
+    flavor = sardinia_industry.1.f
+
+    duration = 3
+
+    trigger = {
+    }
+
+    immediate = {
+    }
+
+    option = {
+        name = sardinia_industry.1.a
+        default_option = yes
+        add_company = company_type:company_fiat
+    }
+}

@@ -1,0 +1,70 @@
+﻿je_italian_unification = {#意大利统一（仅萨丁-皮埃蒙特）
+    icon = "gfx/interface/icons/war_goals/unify_germany.dds"
+
+    group = je_group_german_unification
+
+    is_shown_when_inactive = {
+        OR = {
+            country_has_primary_culture = cu:north_italian
+            country_has_primary_culture = cu:south_italian
+        }
+    }
+
+    possible = {
+        has_technology_researched = nationalism
+        c:SAR ?= THIS
+        is_subject = no
+    }
+
+    immediate = {
+        # 设文化热情
+        if = {
+            limit = { country_has_primary_culture = cu:north_italian }
+            cu:north_italian = { set_fervor = 40 }
+            cu:south_italian = { set_fervor = 30 }
+        }
+        if = {
+            limit = { country_has_primary_culture = cu:south_italian }
+            cu:south_italian = { set_fervor = 40 }
+            cu:north_italian = { set_fervor = 30 }
+        }
+
+        # 设统一倾向变量
+        set_variable = risorgimento_unifying_stance
+
+        # 传播民族主义给所有意文化国家
+        every_country = {
+            limit = {
+                NOT = { THIS = ROOT }
+                OR = {
+                    country_has_primary_culture = cu:north_italian
+                    country_has_primary_culture = cu:south_italian
+                }
+                NOR = {
+                    c:AUS ?= this
+                    c:KUK ?= this
+                }
+            }
+            add_technology_researched = nationalism
+        }
+
+        # 红衫军出发 — 给两西西里刷激进派并触发事件
+        trigger_event = { id = red_shirts.1 }
+    }
+
+    complete = {
+        c:ITA ?= THIS
+    }
+
+    on_complete = {
+        show_as_tooltip = {
+            trigger_event = { id = italian_unification.1 popup = yes }
+        }
+    }
+
+    scripted_button = annex_north_italy_button
+    scripted_button = annex_sicily_button
+
+    should_be_pinned_by_default_uninvolved_or_context = yes
+}
+

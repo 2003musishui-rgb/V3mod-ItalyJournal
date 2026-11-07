@@ -1,0 +1,42 @@
+﻿namespace = red_shirts
+
+red_shirts.1 = {#红衫军出征
+    type = country_event
+    placement = ROOT
+    title = red_shirts.1.t
+    desc = red_shirts.1.d
+    flavor = red_shirts.1.f
+
+    duration = 3
+
+    trigger = {
+    }
+
+    immediate = {
+        # 给两西西里加激进派
+        c:SIC = {
+            add_radicals = {
+                value = 0.25
+                culture = cu:north_italian
+            }
+            add_radicals = {
+                value = 0.25
+                culture = cu:south_italian
+            }
+        }
+    }
+
+    option = {
+        name = red_shirts.1.a
+        default_option = yes
+
+        add_loyalists = {
+            value = 0.1
+            culture = cu:north_italian
+        }
+        add_loyalists = {
+            value = 0.1
+            culture = cu:south_italian
+        }
+    }
+}

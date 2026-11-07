@@ -1,0 +1,37 @@
+﻿annex_sicily_button = {
+    name = annex_sicily_button
+    desc = annex_sicily_button_desc
+
+    is_shown = {
+        is_unification_candidate = ITA
+        NOT = {
+            any_country = {
+                NOT = { this = root }
+                is_unification_candidate = ITA
+            }
+        }
+        exists = c:SIC
+    }
+
+    possible = {
+        is_unification_candidate = ITA
+        NOT = {
+            any_country = {
+                NOT = { this = root }
+                is_unification_candidate = ITA
+            }
+        }
+        NOT = { has_variable = annex_sicily_done }
+        exists = c:SIC
+    }
+
+    effect = {
+        set_variable = annex_sicily_done
+        custom_tooltip = {
+            text = annex_sicily_effect_tt
+            c:SIC = {
+                ROOT = { annex_with_incorporation = PREV }
+            }
+        }
+    }
+}
